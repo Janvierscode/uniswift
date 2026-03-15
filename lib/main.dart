@@ -6,6 +6,8 @@ import 'core/theme/app_theme.dart';
 import 'features/auth/presentation/bloc/auth_bloc.dart';
 import 'features/catalog/presentation/bloc/catalog_bloc.dart';
 import 'features/cart/presentation/bloc/cart_bloc.dart';
+import 'features/orders/presentation/bloc/orders_bloc.dart';
+import 'features/profile/presentation/bloc/profile_bloc.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -28,6 +30,12 @@ class UniSwiftApp extends StatelessWidget {
         ),
         BlocProvider<CartBloc>(
           create: (context) => getIt<CartBloc>(),
+        ),
+        BlocProvider<OrdersBloc>(
+          create: (context) => getIt<OrdersBloc>(),
+        ),
+        BlocProvider<ProfileBloc>(
+          create: (context) => getIt<ProfileBloc>(),
         ),
       ],
       child: MaterialApp.router(

@@ -2,6 +2,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../domain/usecases/add_to_cart_usecase.dart';
+import '../../domain/usecases/checkout_usecase.dart';
 import '../../domain/usecases/clear_cart_usecase.dart';
 import '../../domain/usecases/get_cart_usecase.dart';
 import '../../domain/usecases/remove_from_cart_usecase.dart';
@@ -16,6 +17,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
   final RemoveFromCartUseCase _removeFromCart;
   final UpdateCartQuantityUseCase _updateQuantity;
   final ClearCartUseCase _clearCart;
+  final CheckoutUseCase _checkout;
 
   CartBloc(
     this._getCart,
@@ -23,6 +25,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
     this._removeFromCart,
     this._updateQuantity,
     this._clearCart,
+    this._checkout,
   ) : super(CartInitial()) {
     on<LoadCartEvent>((event, emit) async {
       emit(CartLoading());
@@ -66,6 +69,23 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         await _clearCart();
         final cart = await _getCart();
         emit(CartLoaded(cart));
+      } catch (e) {
+        emit(CartError(e.toString()));
+      }
+    });
+
+    on<CheckoutCartEvent>((event, emit) async {
+      emit(CheckoutProcessing());
+      try {
+        final success = await _checkout(
+          address: event.address,
+          paymentMethod: event.paymentMethod,
+        );
+        if (success) {
+          emit(CheckoutSuccess());
+        } else {
+          emit(const CartError("Checkout failed. Cart might be empty."));
+        }
       } catch (e) {
         emit(CartError(e.toString()));
       }
