@@ -1,0 +1,47 @@
+00:00 +0: loading D:/dev/uniswift/test/features/auth/presentation/bloc/auth_bloc_test.dart
+00:00 +0 -1: loading D:/dev/uniswift/test/features/auth/presentation/bloc/auth_bloc_test.dart [E]
+  Failed to load "D:/dev/uniswift/test/features/auth/presentation/bloc/auth_bloc_test.dart":
+  Compilation failed for testPath=D:/dev/uniswift/test/features/auth/presentation/bloc/auth_bloc_test.dart: test/features/auth/presentation/bloc/auth_bloc_test.dart:23:24: Error: Too few positional arguments: 3 required, 2 given.
+      authBloc = AuthBloc(mockLoginUseCase, mockSignUpUseCase);
+                         ^
+  lib/features/auth/presentation/bloc/auth_bloc.dart:16:3: Context: Found this candidate, but the arguments don't match.
+    AuthBloc(
+    ^^^^^^^^
+  test/features/auth/presentation/bloc/auth_bloc_test.dart:35:7: Error: No named parameter with the name 'token'.
+        token: 'token123',
+        ^^^^^
+  lib/features/auth/domain/entities/user_entity.dart:8:9: Context: Found this candidate, but the arguments don't match.
+    const UserEntity({
+          ^^^^^^^^^^
+  test/features/auth/presentation/bloc/auth_bloc_test.dart:48:37: Error: Couldn't find constructor 'LoginEvent'.
+        act: (bloc) => bloc.add(const LoginEvent("test@example.com", "password")),
+                                      ^^^^^^^^^^
+  test/features/auth/presentation/bloc/auth_bloc_test.dart:64:37: Error: Couldn't find constructor 'LoginEvent'.
+        act: (bloc) => bloc.add(const LoginEvent("test@example.com", "wrong")),
+                                      ^^^^^^^^^^
+  .
+  Error: The Dart compiler exited unexpectedly.
+  package:flutter_tools/src/base/common.dart 34:3  throwToolExit
+  package:flutter_tools/src/compile.dart 939:11    DefaultResidentCompiler._compile.<fn>
+  dart:async/zone_root.dart 48:47                  _rootRunUnary
+  dart:async/zone.dart 733:19                      _CustomZone.runUnary
+  dart:async/future_impl.dart 948:45               Future._propagateToListeners.handleValueCallback
+  dart:async/future_impl.dart 977:13               Future._propagateToListeners
+  dart:async/future_impl.dart 862:9                Future._propagateToListeners
+  dart:async/future_impl.dart 720:5                Future._completeWithValue
+  dart:async/future_impl.dart 804:7                Future._asyncCompleteWithValue.<fn>
+  dart:async/zone_root.dart 35:13                  _rootRun
+  dart:async/zone.dart 726:19                      _CustomZone.run
+  dart:async/zone.dart 625:7                       _CustomZone.runGuarded
+  dart:async/zone.dart 666:23                      _CustomZone.bindCallbackGuarded.<fn>
+  dart:async/schedule_microtask.dart 40:35         _microtaskLoop
+  dart:async/schedule_microtask.dart 49:5          _startMicrotaskLoop
+  dart:isolate-patch/isolate_patch.dart 127:13     _runPendingImmediateCallback
+  dart:isolate-patch/isolate_patch.dart 194:5      _RawReceivePort._handleMessage
+  
+00:00 +0 -1: D:/dev/uniswift/test/features/cart/presentation/bloc/cart_bloc_test.dart: CartBloc initial state should be CartInitial
+00:00 +1 -1: D:/dev/uniswift/test/features/cart/presentation/bloc/cart_bloc_test.dart: CartBloc emits [CartLoading, CartLoaded] when LoadCartEvent succeeds
+00:00 +2 -1: D:/dev/uniswift/test/features/cart/presentation/bloc/cart_bloc_test.dart: CartBloc emits [CheckoutProcessing, CheckoutSuccess] when CheckoutCartEvent succeeds
+00:00 +3 -1: D:/dev/uniswift/test/features/cart/presentation/bloc/cart_bloc_test.dart: CartBloc emits [CheckoutProcessing, CartError] when CheckoutCartEvent fails
+00:01 +4 -1: D:/dev/uniswift/test/widget_test.dart: App should render and show Splash screen or Onboarding
+00:02 +5 -1: Some tests failed.
