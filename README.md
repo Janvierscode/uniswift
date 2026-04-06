@@ -1,6 +1,6 @@
 # UniSwift
 
-UniSwift is a campus delivery mobile application built for University of Zimbabwe students. It provides a seamless way to order snacks, stationery, toiletries, and small electronics and have them quickly delivered to dorm rooms.
+UniSwift is a campus delivery mobile application built for University of Zimbabwe students. It provides a seamless way to order snacks, stationery, toiletries, and small electronics and have them quickly delivered to hostels.
 
 ## Design
 
